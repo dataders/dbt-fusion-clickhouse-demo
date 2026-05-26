@@ -1,0 +1,4 @@
+# dbt Fusion carries the ClickHouse adapter and macro assets in the debug
+# binary used by scripts/dbt. There are no dbt package dependencies for this
+# demo project.
+packages: []

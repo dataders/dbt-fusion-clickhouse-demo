@@ -1,0 +1,36 @@
+flags:
+  send_anonymous_usage_stats: false
+
+name: clickstream_demo
+version: 1.0.0
+config-version: 2
+
+profile: clickstream_demo
+
+model-paths:
+  - models
+seed-paths:
+  - seeds
+
+models:
+  clickstream_demo:
+    +materialized: view
+    # +materialized: table
+    # +materialized: materialized_view
+
+    staging:
+      +engine: MergeTree()
+      +order_by: [placed_at, bet_id]
+
+    intermediate:
+      +engine: MergeTree()
+      +order_by: [placed_at, bet_id]
+
+    marts:
+      +engine: SummingMergeTree()
+      +order_by: [market_id, side]
+
+seeds:
+  clickstream_demo:
+    markets:
+      +quote_columns: false

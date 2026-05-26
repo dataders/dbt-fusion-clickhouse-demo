@@ -1,0 +1,11 @@
+market_id,question,category,close_date,initial_yes_prob
+mk-databricks-ipo,Will Databricks IPO in 2026?,Corporate,2026-12-31,0.72
+mk-agents-de,Will AI agents replace half of data engineers by 2027?,AI/ML,2027-12-31,0.31
+mk-dbt-10m,Will dbt exceed 10M downloads in 2026?,Open Source,2026-12-31,0.61
+mk-spark-decline,Will Spark usage decline 20% by 2028?,Technology,2028-12-31,0.44
+mk-llm-sql,Will LLMs replace SQL as the primary analytics language by 2030?,AI/ML,2030-12-31,0.28
+mk-openai-dw,Will OpenAI launch their own data warehouse product?,AI/ML,2027-06-30,0.41
+mk-pope-clickhouse,Will the Pope say that ClickHouse is better than Spark for streaming?,Meme,2026-12-31,0.04
+mk-ryan-openhouse,Will Ryan Waters announce at Open House that the dbt Fusion ClickHouse adapter is now in public alpha?,dbt Labs,2026-12-31,0.67
+mk-dbt-acq,Will dbt Labs be acquired before end of 2027?,Corporate,2027-12-31,0.35
+mk-parquet-rip,Will Parquet be replaced as the de facto analytics file format by 2030?,Technology,2030-12-31,0.22

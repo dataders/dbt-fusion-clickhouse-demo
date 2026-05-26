@@ -1,0 +1,109 @@
+{
+  "generators": [
+    {
+      "connection": "clickhouse",
+      "url": "https://__CLICKHOUSE_HOST__:8443/",
+      "method": "POST",
+      "queryParams": {
+        "user": "__CLICKHOUSE_KEY_ID__",
+        "password": "__CLICKHOUSE_KEY_SECRET__",
+        "query": "INSERT INTO clickstream.bets (bet_id, user_id, placed_at, market_id, side, amount, implied_prob, channel, region) FORMAT JSONEachRow"
+      },
+      "localConfigs": {
+        "throttleMs": 100
+      },
+      "data": {
+        "bet_id": {
+          "_gen": "uuid"
+        },
+        "user_id": {
+          "_gen": "uuid"
+        },
+        "placed_at": {
+          "_gen": "formatDateTime",
+          "ms": {
+            "_gen": "now"
+          },
+          "format": "yyyy-MM-dd HH:mm:ss.SSS"
+        },
+        "market_id": {
+          "_gen": "oneOf",
+          "choices": [
+            "mk-databricks-ipo",
+            "mk-agents-de",
+            "mk-dbt-10m",
+            "mk-spark-decline",
+            "mk-llm-sql",
+            "mk-openai-dw",
+            "mk-pope-clickhouse",
+            "mk-ryan-openhouse",
+            "mk-dbt-acq",
+            "mk-parquet-rip"
+          ]
+        },
+        "side": {
+          "_gen": "weightedOneOf",
+          "choices": [
+            {
+              "weight": 45,
+              "value": "yes"
+            },
+            {
+              "weight": 55,
+              "value": "no"
+            }
+          ]
+        },
+        "amount": {
+          "_gen": "uniformDistribution",
+          "bounds": [
+            10,
+            1000
+          ],
+          "decimals": 2
+        },
+        "implied_prob": {
+          "_gen": "uniformDistribution",
+          "bounds": [
+            0.05,
+            0.95
+          ],
+          "decimals": 2
+        },
+        "channel": {
+          "_gen": "weightedOneOf",
+          "choices": [
+            {
+              "weight": 55,
+              "value": "web"
+            },
+            {
+              "weight": 30,
+              "value": "mobile"
+            },
+            {
+              "weight": 15,
+              "value": "api"
+            }
+          ]
+        },
+        "region": {
+          "_gen": "oneOf",
+          "choices": [
+            "na",
+            "emea",
+            "apac"
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "clickhouse": {
+      "kind": "webhook",
+      "connectionConfigs": {
+        "maxRequests": 0
+      }
+    }
+  }
+}

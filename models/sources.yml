@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: clickstream
+    schema: clickstream
+    tables:
+      - name: bets
+        description: Live prediction-market bets streamed by ShadowTraffic.
+        columns:
+          - name: bet_id
+            data_type: UUID
+          - name: user_id
+            data_type: UUID
+          - name: placed_at
+            data_type: DateTime64(3, 'UTC')
+          - name: placed_date
+            data_type: Date
+          - name: market_id
+            data_type: LowCardinality(String)
+          - name: side
+            data_type: LowCardinality(String)
+          - name: amount
+            data_type: Decimal(12, 2)
+          - name: implied_prob
+            data_type: Float32
+          - name: channel
+            data_type: LowCardinality(String)
+          - name: region
+            data_type: LowCardinality(String)
+          - name: ingest_time
+            data_type: DateTime64(3, 'UTC')
