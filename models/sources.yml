@@ -8,9 +8,9 @@ sources:
         description: Live prediction-market bets streamed by ShadowTraffic.
         columns:
           - name: bet_id
-            data_type: UUID
+            data_type: UInt64
           - name: user_id
-            data_type: UUID
+            data_type: UInt32
           - name: placed_at
             data_type: DateTime64(3, 'UTC')
           - name: placed_date

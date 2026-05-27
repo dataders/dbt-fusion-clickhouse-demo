@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: int_bet_markets
+    description: Bet events enriched with typed market reference attributes.
+    columns:
+      - name: bet_id
+        description: Numeric identifier for a single bet event.
+        data_type: UInt64
+      - name: user_id
+        description: Numeric identifier for the simulated bettor.
+        data_type: UInt32
+      - name: placed_at
+        description: UTC timestamp when the bet was placed.
+        data_type: DateTime64(3, 'UTC')
+      - name: placed_date
+        description: Date derived from placed_at for date-level grouping.
+        data_type: Date
+      - name: market_id
+        description: Identifier for the prediction market that received the bet.
+        data_type: LowCardinality(String)
+      - name: side
+        description: Side of the market selected by the bettor.
+        data_type: LowCardinality(String)
+      - name: amount
+        description: Wager amount for the bet.
+        data_type: Decimal(12, 2)
+      - name: implied_prob
+        description: Simulated implied probability at the time of the bet.
+        data_type: Float32
+      - name: channel
+        description: Simulated channel where the bet was placed.
+        data_type: LowCardinality(String)
+      - name: region
+        description: Simulated geographic region for the bet.
+        data_type: LowCardinality(String)
+      - name: ingest_time
+        description: ClickHouse ingestion timestamp for the source row.
+        data_type: DateTime64(3, 'UTC')
+      - name: question
+        description: Human-readable market question.
+        data_type: String
+      - name: category
+        description: Market grouping used for demo navigation.
+        data_type: String
+      - name: close_date
+        description: Date when the simulated market closes.
+        data_type: Date
+      - name: initial_yes_prob
+        description: Starting yes-side probability for the market.
+        data_type: Float32

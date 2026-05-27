@@ -17,10 +17,6 @@ dbt seed && dbt run
 starts the ShadowTraffic container. `scripts/stop.sh` stops ingestion and drops
 the demo tables.
 
-`scripts/dbt run` also clears the three demo model relations first. That keeps
-switching between view, table, and materialized_view modes a one-edit workflow
-with the current Fusion ClickHouse preview binary.
-
 `scripts/setup_env.sh` uses the ClickHouse Cloud API credential file for service
 discovery, then uses the direct SQL credentials from
 `~/Developer/dotfiles_env/credentials/fusion.env.json` when that file exists.

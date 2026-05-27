@@ -1,3 +1,4 @@
+
 select
     market_id,
     any(question) as question,

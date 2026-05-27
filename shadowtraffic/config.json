@@ -14,10 +14,16 @@
       },
       "data": {
         "bet_id": {
-          "_gen": "uuid"
+          "_gen": "sequentialInteger",
+          "startingFrom": 1000000
         },
         "user_id": {
-          "_gen": "uuid"
+          "_gen": "uniformDistribution",
+          "bounds": [
+            1000,
+            9999
+          ],
+          "decimals": 0
         },
         "placed_at": {
           "_gen": "formatDateTime",

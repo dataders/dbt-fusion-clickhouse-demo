@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fct_market_odds
+    description: Market-side aggregates showing bet volume, total wagered amount, and implied probability.
+    columns:
+      - name: market_id
+        description: Identifier for the prediction market.
+        data_type: LowCardinality(String)
+      - name: question
+        description: Human-readable market question.
+        data_type: String
+      - name: category
+        description: Market grouping used for demo navigation.
+        data_type: String
+      - name: side
+        description: Side of the market being aggregated.
+        data_type: LowCardinality(String)
+      - name: bet_count
+        description: Number of bets placed for this market side.
+        data_type: UInt64
+      - name: total_amount
+        description: Total wagered amount for this market side.
+        data_type: Decimal(38, 2)
+      - name: avg_implied_prob
+        description: Average implied probability across bets for this market side.
+        data_type: Float64
+      - name: latest_bet_at
+        description: Most recent bet timestamp for this market side.
+        data_type: DateTime64(3, 'UTC')

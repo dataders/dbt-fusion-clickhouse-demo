@@ -1,0 +1,54 @@
+{
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "workbench.colorTheme": "ClickHouse Dark",
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/dbt_cloud-latest-fusion.json": [
+      "dbt_cloud.yml",
+      "dbt_cloud.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/dbt_project-latest-fusion.json": [
+      "dbt_project.yml",
+      "dbt_project.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/dbt_yml_files-latest-fusion.json": [
+      "/**/*.yml",
+      "/**/*.yaml",
+      "!profiles.yml",
+      "!profiles.yaml",
+      "!dbt_project.yml",
+      "!dbt_project.yaml",
+      "!packages.yml",
+      "!packages.yaml",
+      "!dependencies.yml",
+      "!dependencies.yaml",
+      "!selectors.yml",
+      "!selectors.yaml",
+      "!dbt_cloud.yml",
+      "!dbt_cloud.yaml",
+      "!profile_template.yml",
+      "!profile_template.yaml",
+      "!package-lock.yml",
+      "!package-lock.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/dependencies-latest-fusion.json": [
+      "dependencies.yml",
+      "dependencies.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/packages-latest-fusion.json": [
+      "packages.yml",
+      "packages.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/profiles-latest-fusion.json": [
+      "profiles.yml",
+      "profiles.yaml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest_fusion/selectors-latest-fusion.json": [
+      "selectors.yml",
+      "selectors.yaml"
+    ]
+  }
+}

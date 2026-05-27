@@ -41,8 +41,8 @@ scripts/stop.sh
 Created by `scripts/start.sh`, dropped by `scripts/stop.sh`.
 
 ```sql
-bet_id         UUID
-user_id        UUID
+bet_id         UInt64
+user_id        UInt32
 placed_at      DateTime64(3, 'UTC')
 placed_date    Date  MATERIALIZED toDate(placed_at)
 market_id      LowCardinality(String)

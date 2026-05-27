@@ -3,13 +3,7 @@ with bets as (
 ),
 
 markets as (
-    select
-        market_id,
-        question,
-        category,
-        toDate(close_date) as close_date,
-        toFloat32(initial_yes_prob) as initial_yes_prob
-    from {{ ref('markets') }}
+    select * from {{ ref('stg_markets') }}
 )
 
 select
