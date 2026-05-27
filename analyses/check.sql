@@ -1,4 +1,4 @@
 
 select
 count(*)
-from {{ ref('fct_market_odds') }}
+from {{ ref('int_bet_markets') }}

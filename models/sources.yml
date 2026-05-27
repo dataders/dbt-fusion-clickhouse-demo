@@ -9,23 +9,59 @@ sources:
         columns:
           - name: bet_id
             data_type: UInt64
+            data_tests:
+              - not_null
+              - unique
           - name: user_id
             data_type: UInt32
+            data_tests:
+              - not_null
           - name: placed_at
             data_type: DateTime64(3, 'UTC')
+            data_tests:
+              - not_null
           - name: placed_date
             data_type: Date
+            data_tests:
+              - not_null
           - name: market_id
             data_type: LowCardinality(String)
+            data_tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: ref('stg_markets')
+                    field: market_id
           - name: side
             data_type: LowCardinality(String)
+            data_tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: ['yes', 'no']
           - name: amount
             data_type: Decimal(12, 2)
+            data_tests:
+              - not_null
           - name: implied_prob
             data_type: Float32
+            data_tests:
+              - not_null
           - name: channel
             data_type: LowCardinality(String)
+            data_tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: ['web', 'mobile', 'api']
           - name: region
             data_type: LowCardinality(String)
+            data_tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: ['na', 'emea', 'apac']
           - name: ingest_time
             data_type: DateTime64(3, 'UTC')
+            data_tests:
+              - not_null

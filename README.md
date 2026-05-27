@@ -10,7 +10,7 @@ scripts/setup_env.sh
 direnv allow
 scripts/start.sh
 scripts/count_bets.sh
-dbt seed && dbt run
+dbt seed && dbt run && dbt test
 ```
 
 `scripts/start.sh` always resets the demo source and dbt relations before it

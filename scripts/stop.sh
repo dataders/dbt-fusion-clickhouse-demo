@@ -37,6 +37,15 @@ drop_demo_relations() {
   clickhouse_query "DROP TABLE IF EXISTS clickstream.stg_bets" >/dev/null
   clickhouse_query "DROP TABLE IF EXISTS clickstream.markets" >/dev/null
   clickhouse_query "DROP TABLE IF EXISTS clickstream.bets" >/dev/null
+  clickhouse_query 'DROP TABLE IF EXISTS clickstream."bets"' >/dev/null
+  clickhouse_query 'DROP TABLE IF EXISTS clickstream."int_bet_markets2"' >/dev/null
+  clickhouse_query 'DROP TABLE IF EXISTS clickstream."markets"' >/dev/null
+  clickhouse_query 'DROP TABLE IF EXISTS clickstream."total_bets"' >/dev/null
+  clickhouse_query 'DROP VIEW IF EXISTS clickstream."fct_market_odds"' >/dev/null
+  clickhouse_query 'DROP VIEW IF EXISTS clickstream."int_bet_markets"' >/dev/null
+  clickhouse_query 'DROP VIEW IF EXISTS clickstream."stg_bets"' >/dev/null
+  clickhouse_query 'DROP VIEW IF EXISTS clickstream."stg_markets"' >/dev/null
+  clickhouse_query 'DROP VIEW IF EXISTS clickstream."int_bet_markets2_mv"' >/dev/null
 }
 
 require_command curl

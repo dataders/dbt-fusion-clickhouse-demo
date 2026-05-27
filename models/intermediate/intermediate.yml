@@ -7,45 +7,89 @@ models:
       - name: bet_id
         description: Numeric identifier for a single bet event.
         data_type: UInt64
+        data_tests:
+          - not_null
+          - unique
       - name: user_id
         description: Numeric identifier for the simulated bettor.
         data_type: UInt32
+        data_tests:
+          - not_null
       - name: placed_at
         description: UTC timestamp when the bet was placed.
         data_type: DateTime64(3, 'UTC')
+        data_tests:
+          - not_null
       - name: placed_date
         description: Date derived from placed_at for date-level grouping.
         data_type: Date
+        data_tests:
+          - not_null
       - name: market_id
         description: Identifier for the prediction market that received the bet.
         data_type: LowCardinality(String)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_markets')
+                field: market_id
       - name: side
         description: Side of the market selected by the bettor.
         data_type: LowCardinality(String)
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['yes', 'no']
       - name: amount
         description: Wager amount for the bet.
         data_type: Decimal(12, 2)
+        data_tests:
+          - not_null
       - name: implied_prob
         description: Simulated implied probability at the time of the bet.
         data_type: Float32
+        data_tests:
+          - not_null
       - name: channel
         description: Simulated channel where the bet was placed.
         data_type: LowCardinality(String)
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'mobile', 'api']
       - name: region
         description: Simulated geographic region for the bet.
         data_type: LowCardinality(String)
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['na', 'emea', 'apac']
       - name: ingest_time
         description: ClickHouse ingestion timestamp for the source row.
         data_type: DateTime64(3, 'UTC')
+        data_tests:
+          - not_null
       - name: question
         description: Human-readable market question.
         data_type: String
+        data_tests:
+          - not_null
       - name: category
         description: Market grouping used for demo navigation.
         data_type: String
+        data_tests:
+          - not_null
       - name: close_date
         description: Date when the simulated market closes.
         data_type: Date
+        data_tests:
+          - not_null
       - name: initial_yes_prob
         description: Starting yes-side probability for the market.
         data_type: Float32
+        data_tests:
+          - not_null

@@ -1,0 +1,36 @@
+version: 2
+
+seeds:
+  - name: markets
+    description: Static prediction-market reference data used to enrich live bets.
+    columns:
+      - name: market_id
+        description: Identifier for the prediction market.
+        data_tests:
+          - not_null
+          - unique
+      - name: question
+        description: Human-readable market question.
+        data_tests:
+          - not_null
+      - name: category
+        description: Market grouping used for demo navigation.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - AI/ML
+                  - Corporate
+                  - Open Source
+                  - Technology
+                  - Meme
+                  - dbt Labs
+      - name: close_date
+        description: Date when the simulated market closes.
+        data_tests:
+          - not_null
+      - name: initial_yes_prob
+        description: Starting yes-side probability for the market.
+        data_tests:
+          - not_null

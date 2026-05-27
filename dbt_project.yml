@@ -14,9 +14,9 @@ seed-paths:
 
 models:
   clickstream_demo:
-    +materialized: view
+    # +materialized: view
     # +materialized: table
-    # +materialized: materialized_view
+    +materialized: materialized_view
 
     staging:
       +engine: MergeTree()
@@ -27,7 +27,7 @@ models:
       +order_by: [placed_at, bet_id]
 
     marts:
-      +engine: SummingMergeTree()
+      +engine: MergeTree()
       +order_by: [market_id, side]
 
 seeds:

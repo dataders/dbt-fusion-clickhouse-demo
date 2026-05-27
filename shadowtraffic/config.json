@@ -10,7 +10,8 @@
         "query": "INSERT INTO clickstream.bets (bet_id, user_id, placed_at, market_id, side, amount, implied_prob, channel, region) FORMAT JSONEachRow"
       },
       "localConfigs": {
-        "throttleMs": 100
+        "throughput": 100,
+        "maxEvents": 5000000
       },
       "data": {
         "bet_id": {
@@ -108,7 +109,7 @@
     "clickhouse": {
       "kind": "webhook",
       "connectionConfigs": {
-        "maxRequests": 0
+        "maxRequests": 50
       }
     }
   }
